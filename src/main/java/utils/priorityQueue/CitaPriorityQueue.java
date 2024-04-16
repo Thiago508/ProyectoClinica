@@ -16,9 +16,23 @@ public class CitaPriorityQueue {
         Node<Cita> newNode = new Node<>(value);
 
         Node<Cita> node = firstNode;
-        Node<Cita> nextNode = null;
+        Node<Cita> nextNode;
 
-        while (value.getPaciente().getGrupoPoblacional().getPrioridad().getValue() < node.getValue().getPaciente().getGrupoPoblacional().getPrioridad().getValue() && node.getNextNode() != null){
+        if (node == null){
+            firstNode = newNode;
+            return;
+        }
+
+        if (newNode.getValue().getPaciente().getGrupoPoblacional().getPrioridad().getValue() < node.getValue().getPaciente().getGrupoPoblacional().getPrioridad().getValue()){
+            newNode.setNextNode(node);
+            firstNode = newNode;
+            return;
+        }
+
+        while (newNode.getValue().getPaciente().getGrupoPoblacional().getPrioridad().getValue() >= node.getValue().getPaciente().getGrupoPoblacional().getPrioridad().getValue() && node.getNextNode() != null){
+            if (node.getNextNode().getValue().getPaciente().getGrupoPoblacional().getPrioridad().getValue() > newNode.getValue().getPaciente().getGrupoPoblacional().getPrioridad().getValue()) {
+                break;
+            }
             node = node.getNextNode();
         }
 
