@@ -2,7 +2,15 @@ package model;
 
 public enum Prioridad {
 
-    ALTA,
-    BAJA;
+    ALTA(0),
+    BAJA(1);
 
+    private int value;
+    private Prioridad (int value){
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
 }
