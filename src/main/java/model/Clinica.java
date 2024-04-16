@@ -1,4 +1,5 @@
-import model.*;
+package model;
+
 import utils.priorityQueue.CitaPriorityQueue;
 
 import java.util.ArrayList;

@@ -60,4 +60,8 @@ public class Cita {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
+
+    public String toString() {
+        return paciente.getNombre() + " - " + medico.getNombre() + " - " + fechaCita.toString() + " - " + lugarAtencion.getNombre() + " - " + estado.toString();
+    }
 }
