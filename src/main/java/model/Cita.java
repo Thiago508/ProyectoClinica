@@ -7,15 +7,17 @@ public class Cita {
     private Paciente paciente;
     private Medico medico;
     private LocalDateTime fechaCita;
+    private LugarAtencion lugarAtencion;
     private Estado estado;
 
     public Cita() {
     }
 
-    public Cita(Paciente paciente, Medico medico, LocalDateTime fechaCita, Estado estado) {
+    public Cita(Paciente paciente, Medico medico, LocalDateTime fechaCita, LugarAtencion lugarAtencion, Estado estado) {
         this.paciente = paciente;
         this.medico = medico;
         this.fechaCita = fechaCita;
+        this.lugarAtencion = lugarAtencion;
         this.estado = estado;
     }
 
@@ -41,6 +43,14 @@ public class Cita {
 
     public void setFechaCita(LocalDateTime fechaCita) {
         this.fechaCita = fechaCita;
+    }
+
+    public LugarAtencion getLugarAtencion(){
+        return lugarAtencion;
+    }
+
+    public void setLugarAtencion(LugarAtencion lugarAtencion){
+        this.lugarAtencion = lugarAtencion;
     }
 
     public Estado getEstado() {
