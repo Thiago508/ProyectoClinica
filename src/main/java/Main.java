@@ -1,4 +1,5 @@
 import model.*;
+import view.LlamadoPaciente;
 
 import java.time.LocalDateTime;
 
@@ -9,6 +10,8 @@ public class Main {
 
         Clinica clinica = Clinica.getInstance("JHST");
         initValues(clinica);
+        LlamadoPaciente llamadoPaciente = new LlamadoPaciente(clinica);
+        llamadoPaciente.show();
 
     }
 
@@ -36,7 +39,7 @@ public class Main {
         clinica.addPaciente(paciente3);
         clinica.addPaciente(paciente4);
 
-        Medico medico = new Medico("456789","Miguel","45679");
+        Medico medico = new Medico("456789","Dr. Miguel Torres","45679");
 
         clinica.addMedico(medico);
 
@@ -44,11 +47,11 @@ public class Main {
 
         clinica.addLugarAtencion(lugarAtencion);
 
-        Cita cita = new Cita(paciente,medico, LocalDateTime.of(2024,6,16,7,0),lugarAtencion,Estado.ACTIVO);
-        Cita cita1 = new Cita(paciente1,medico, LocalDateTime.of(2024,6,16,7,20),lugarAtencion,Estado.ACTIVO);
-        Cita cita2 = new Cita(paciente2,medico, LocalDateTime.of(2024,6,16,7,40),lugarAtencion,Estado.ACTIVO);
-        Cita cita3 = new Cita(paciente3,medico, LocalDateTime.of(2024,6,16,8,0),lugarAtencion,Estado.ACTIVO);
-        Cita cita4 = new Cita(paciente4,medico, LocalDateTime.of(2024,6,16,8,20),lugarAtencion,Estado.ACTIVO);
+        Cita cita = new Cita(paciente,medico, LocalDateTime.of(2024,6,16, 0, 0),lugarAtencion,Estado.ACTIVO);
+        Cita cita1 = new Cita(paciente1,medico, LocalDateTime.of(2024,6,16, 0, 0),lugarAtencion,Estado.ACTIVO);
+        Cita cita2 = new Cita(paciente2,medico, LocalDateTime.of(2024,6,16, 0, 0),lugarAtencion,Estado.ACTIVO);
+        Cita cita3 = new Cita(paciente3,medico, LocalDateTime.of(2024,6,16, 0, 0),lugarAtencion,Estado.ACTIVO);
+        Cita cita4 = new Cita(paciente4,medico, LocalDateTime.of(2024,6,16, 0, 0),lugarAtencion,Estado.ACTIVO);
 
         clinica.addCita(cita);
         System.out.println(clinica.getCita().toString());
@@ -60,14 +63,6 @@ public class Main {
         System.out.println(clinica.getCita().toString());
         clinica.addCita(cita4);
         System.out.println(clinica.getCita().toString());
-
-        System.out.println(" ");
-
-        System.out.println(clinica.attendCita().toString());
-        System.out.println(clinica.attendCita().toString());
-        System.out.println(clinica.attendCita().toString());
-        System.out.println(clinica.attendCita().toString());
-        System.out.println(clinica.attendCita().toString());
 
     }
 }

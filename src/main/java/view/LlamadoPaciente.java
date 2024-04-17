@@ -6,6 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+
+import model.Cita;
+import model.Clinica;
+
 import javax.swing.JTextField;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -23,6 +27,8 @@ public class LlamadoPaciente extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	
+	Cita cita;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -30,7 +36,7 @@ public class LlamadoPaciente extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LlamadoPaciente frame = new LlamadoPaciente();
+					LlamadoPaciente frame = new LlamadoPaciente(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +48,8 @@ public class LlamadoPaciente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LlamadoPaciente() {
+	public LlamadoPaciente(Clinica clinica) {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -56,11 +63,7 @@ public class LlamadoPaciente extends JFrame {
 		btnNewButton.setBackground(new Color(111, 183, 255));
 		btnNewButton.setOpaque(true);
 		btnNewButton.setBorderPainted(false);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
+
 		btnNewButton.setBounds(136, 178, 154, 21);
 		contentPane.add(btnNewButton);
 		
@@ -71,5 +74,12 @@ public class LlamadoPaciente extends JFrame {
 		Border border = BorderFactory.createLineBorder(java.awt.Color.BLUE, 2);
 		textArea.setBorder(border);
 		contentPane.add(textArea);
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cita = clinica.attendCita();
+				textArea.setText(cita.toString());
+			}
+		});
 	}
 }
